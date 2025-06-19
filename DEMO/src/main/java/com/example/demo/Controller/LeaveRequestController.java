@@ -17,6 +17,8 @@ import com.example.demo.Service.ILeaveRequestService;
 @RestController
 @RequestMapping("/api/v1/leave-request")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+
 public class LeaveRequestController {
 
     private final ILeaveRequestService leaveRequestService;
