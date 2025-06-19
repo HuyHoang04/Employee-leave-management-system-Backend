@@ -1,5 +1,5 @@
-# Use Eclipse Temurin base image for Java 24
-FROM eclipse-temurin:24-jdk-alpine
+# Use Eclipse Temurin base image for Java 21
+FROM eclipse-temurin:21-jdk-alpine
 
 # Set working directory inside the container
 WORKDIR /app
