@@ -17,6 +17,8 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
+@NoArgsConstructor
+@AllArgsConstructor
 public class LeaveBalanceService implements ILeaveBalanceService {
 
     private final EmployeeRepository employeeRepository;

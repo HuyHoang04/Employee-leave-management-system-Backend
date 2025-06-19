@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@NoArgsConstructor
+@AllArgsConstructor
 public class HolidayService implements IHolidayService {
 
     private final HolidayRepository holidayRepository;

@@ -29,6 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
+@NoArgsConstructor
+@AllArgsConstructor
 public class LeaveRequestService implements ILeaveRequestService {
 
     private final LeaveRequestRepository leaveRequestRepository;

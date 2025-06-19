@@ -26,6 +26,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmployeeService implements IEmployeeService {
 
     private final EmployeeRepository employeeRepository;
