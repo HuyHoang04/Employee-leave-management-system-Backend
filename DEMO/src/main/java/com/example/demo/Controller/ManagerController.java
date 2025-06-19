@@ -15,6 +15,7 @@ import com.example.demo.Service.ILeaveRequestService;
 @RestController
 @RequestMapping("/api/v1/manager")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class ManagerController {
 
     private final ILeaveRequestService leaveRequestService;
