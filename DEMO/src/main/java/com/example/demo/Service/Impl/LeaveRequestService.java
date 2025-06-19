@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+import com.example.demo.DTO.Request.EmployeeDTO;
+import com.example.demo.Service.IEmployeeService;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +37,46 @@ public class LeaveRequestService implements ILeaveRequestService {
     private final LeaveRequestRepository leaveRequestRepository;
     private final EmployeeRepository employeeRepository;
     private final ILeaveBalanceService leaveBalanceService;
+    private final IEmployeeService employeeService;
 
+@Scheduled(cron = "0 0 0 1 1 *")
+//@Scheduled(cron = "0 * * * * *")
+@Transactional
+public void autoYearlyCarryOver() {
+        try {
+            log.info("Starting automatic yearly carry-over...");
+            
+            List<Employee> allEmployees = employeeService.getAll();
+            int successCount = 0;
+            
+            for (Employee employee : allEmployees) {
+                int oldBalance = employee.getLeaveBalance();
+                int newBalance = oldBalance + 12; // Carry over + 12 ngày mới
+                
+                EmployeeDTO dto = new EmployeeDTO(
+                    employee.getEmail(),
+                    employee.getFullName(),
+                    employee.getDepartment(),
+                    employee.getRole(),
+                    employee.getManagerEmail(),
+                    newBalance
+                );
+                
+                employeeService.update(employee.getEmail(), dto);
+                successCount++;
+                
+                log.debug("Carried over for {}: {} → {} days", 
+                         employee.getEmail(), oldBalance, newBalance);
+            }
+            
+            log.info("Automatic carry-over completed successfully! " +
+                    "Updated {} employees with +12 days each.", successCount);
+                    
+        } catch (Exception e) {
+            log.error("Error during automatic carry-over: {}", e.getMessage(), e);
+        }
+    }
+    
     @Override
     public Leave_Request getById(UUID id) {
         try {
