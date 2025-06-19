@@ -15,8 +15,6 @@ import com.example.demo.Service.IEmployeeService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 
 import java.util.List;
@@ -28,8 +26,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
-@NoArgsConstructor
-@AllArgsConstructor
 public class EmployeeService implements IEmployeeService {
 
     private final EmployeeRepository employeeRepository;

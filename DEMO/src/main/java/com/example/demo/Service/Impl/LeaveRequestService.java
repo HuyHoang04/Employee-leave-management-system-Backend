@@ -24,15 +24,11 @@ import com.example.demo.Service.ILeaveRequestService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
-@NoArgsConstructor
-@AllArgsConstructor
 public class LeaveRequestService implements ILeaveRequestService {
 
     private final LeaveRequestRepository leaveRequestRepository;
