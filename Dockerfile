@@ -1,5 +1,5 @@
 # Use an official OpenJDK runtime as a parent image
-FROM eclipse-temurin:24-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -11,6 +11,9 @@ COPY pom.xml .
 
 # Copy the source code
 COPY src src
+
+# Give execute permission to mvnw
+RUN chmod +x mvnw
 
 # Package the application
 RUN ./mvnw clean package -DskipTests
