@@ -13,6 +13,9 @@ COPY DEMO/.mvn DEMO/.mvn
 # Copy the source code
 COPY DEMO/src DEMO/src
 
+# Make Maven wrapper executable
+RUN chmod +x DEMO/mvnw
+
 # Build the application
 RUN ./DEMO/mvnw -f DEMO/pom.xml clean package -DskipTests
 
