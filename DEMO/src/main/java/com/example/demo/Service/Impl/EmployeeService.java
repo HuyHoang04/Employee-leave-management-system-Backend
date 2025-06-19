@@ -15,6 +15,8 @@ import com.example.demo.Service.IEmployeeService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 
 import java.util.List;
