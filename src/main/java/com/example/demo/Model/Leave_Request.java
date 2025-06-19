@@ -66,4 +66,7 @@ public class Leave_Request {
         }
         return 0;
     }
+    public void setLeaveStatus(Leave_Status_Enum leaveStatus) {
+        this.leaveStatus = leaveStatus;
+    }
 }
