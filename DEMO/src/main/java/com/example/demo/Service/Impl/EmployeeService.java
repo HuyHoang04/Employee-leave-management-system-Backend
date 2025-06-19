@@ -80,6 +80,7 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
+    @Transactional
     public Employee update(String email, EmployeeDTO employeeDTO) {
         try {
             Employee existingEmployee = employeeRepository.findById(email)
